@@ -4,7 +4,7 @@ export async function handler() {
   try {
     const res = await fetch(url);
     const data = await res.text();
-
+    console.log(`Pinged Render app (${url}), got: ${data}`);
     return {
       statusCode: 200,
       body: `Pinged Render app (${url}), got: ${data}`,
