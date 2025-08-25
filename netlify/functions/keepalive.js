@@ -1,20 +1,18 @@
 export async function handler() {
-  try {
-    const res = await fetch("https://reciperealm-1.onrender.com/alive"); 
-    // replace with your API endpoint
+  const url = process.env.RENDER_HEALTH_URL;
 
-    const text = await res.text();
-    console.log("Ping response:", text);
+  try {
+    const res = await fetch(url);
+    const data = await res.text();
 
     return {
       statusCode: 200,
-      body: `Ping successful: ${text}`,
+      body: `Pinged Render app (${url}), got: ${data}`,
     };
-  } catch (error) {
-    console.error("Ping failed:", error);
+  } catch (err) {
     return {
       statusCode: 500,
-      body: `Ping failed: ${error.message}`,
+      body: `Failed to ping ${url}: ${err.message}`,
     };
   }
 }
