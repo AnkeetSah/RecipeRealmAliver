@@ -1,7 +1,10 @@
 [build]
-  functions = "netlify/functions"
   publish = "."
+  functions = "netlify/functions"
 
-[[scheduled]]
+[[functions]]
+  node_bundle = true  # Optional but recommended
+
+[[functions.schedule]]
+  cron = "*/5 * * * *"  # every 5 minutes
   function = "keepalive"
-  cron = "*/5 * * * *" # every 5 minutes
