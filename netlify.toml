@@ -2,6 +2,6 @@
   functions = "netlify/functions"
   publish = "."
 
-[[scheduled_functions]]
+[[scheduled]]
   function = "keepalive"
   cron = "*/5 * * * *" # every 5 minutes
