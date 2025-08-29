@@ -16,3 +16,8 @@ export async function handler() {
     };
   }
 }
+
+// Schedule: run every 5 minutes
+export const config = {
+  schedule: "@every 5m",
+};
